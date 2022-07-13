@@ -10,7 +10,7 @@ services:
         working_dir: '/root/src'
         tty: true
         volumes:
-            - ${PWD}/src:/root/src
+            - ./src:/root/src
         networks:
             - dynamodb-local-network
 
@@ -20,7 +20,7 @@ services:
         user: root
         command: -jar DynamoDBLocal.jar -sharedDb -dbPath /data
         volumes:
-            - ${PWD}/dynamodb-local-data:/data
+            - ./dynamodb-local-data:/data
         ports:
             - 8000:8000
         networks:
